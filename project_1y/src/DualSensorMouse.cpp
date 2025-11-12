@@ -69,11 +69,8 @@ bool DualSensorMouse::initSensor(Adafruit_VL53L0X &sensor, uint8_t addr, int shu
         return false;
     }
 
-    // --- 設定為長距離模式以獲得更好的效能 ---
-    sensor.setSignalRateLimit(0.1);
-    sensor.setVcselPulsePeriod(VL53L0X_VCSEL_PERIOD_PRE_RANGE, 18);
-    sensor.setVcselPulsePeriod(VL53L0X_VCSEL_PERIOD_FINAL_RANGE, 14);
-    sensor.setMeasurementTimingBudget(33000);
+    // --- 設定為長距離模式以獲得更好的效能 --- [13]
+    sensor.configSensor(Adafruit_VL53L0X::VL53L0X_SENSE_LONG_RANGE);
 
     Serial.print(F("✅ "));
     Serial.print(sensorName);
