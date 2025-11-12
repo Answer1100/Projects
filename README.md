@@ -1,2 +1,82 @@
 # Projects
 微算機原理的final project
+# 語音控制雙感測器懸浮滑鼠 (Voice-Controlled Dual-Sensor Hover Mouse)
+
+這是一個結合了語音辨識與飛時測距（Time-of-Flight）技術的微控制器專案。系統由兩塊主要的開發板協同工作：
+
+1.  **Arduino Leonardo**：負責連接兩個 VL53L0X 雷射測距感測器，讀取手部在空中的距離變化，並將其轉換為滑鼠的移動指令。
+2.  **ESP32**：負責執行關鍵字偵測（Keyword Detection, KWD）模型。當偵測到預設的關鍵字（例如 "yes" 或 "no"）時，透過序列埠（Serial）發送指令給 Arduino，以啟用或禁用滑鼠功能。
+
+這個專案的目標是實現一個可以透過語音「喚醒」或「休眠」的懸浮滑鼠，提供一種新穎的人機互動體驗。
+
+**專案狀態：開發中**
+*   [✅] Arduino 端的懸浮滑鼠功能已完成。
+*   [⬜️] ESP32 端的關鍵字偵測功能待開發。
+*   [⬜️] Arduino 與 ESP32 之間的通訊協定待整合。
+
+## ✨ 主要功能
+
+*   **懸浮滑鼠**：無需接觸任何表面，透過手在空中的位置來控制滑鼠游標。
+*   **雙軸控制**：使用兩個 VL53L0X 感測器分別控制滑鼠的 X 軸和 Y 軸移動。
+*   **卡爾曼濾波**：對感測器的原始數據進行濾波，使滑鼠移動更加平滑、穩定。
+*   **語音喚醒/休眠**：透過 ESP32 偵測特定語音指令，來啟用或禁用滑鼠功能，避免誤觸。
+*   **跨平台協作**：展示了如何讓兩塊不同的微控制器（Arduino 和 ESP32）分工合作，完成一個更複雜的任務。
+
+## 🛠️ 硬體需求
+
+| 元件 | 數量 | 備註 |
+| :--- | :--- | :--- |
+| **Arduino Leonardo** | 1 | 必須是具有原生 USB HID 功能的板子 (如 Leonardo, Pro Micro) |
+| **ESP32 開發板** | 1 | 用於語音辨識 |
+| **VL53L0X 飛時測距感測器** | 2 | 用於偵測手部距離 |
+| **I2S 麥克風模組** | 1 | 例如 INMP441，用於接收語音指令 |
+| 麵包板與杜邦線 | 若干 | 用於連接電路 |
+
+## 🔌 電路連接
+
+### 1. Arduino Leonardo 與感測器
+
+由於兩個 VL53L0X 感測器的預設 I2C 位址相同，我們需要使用 `XSHUT` 腳位來分別初始化它們，並設定不同的位址。
+
+| VL53L0X (X軸) | Arduino Leonardo |
+| :--- | :--- |
+| VCC | 5V |
+| GND | GND |
+| SDA | SDA |
+| SCL | SCL |
+| XSHUT | **Pin 4** (可自訂) |
+
+| VL53L0X (Y軸) | Arduino Leonardo |
+| :--- | :--- |
+| VCC | 5V |
+| GND | GND |
+| SDA | SDA |
+| SCL | SCL |
+| XSHUT | **Pin 7** (可自訂) |
+
+### 2. ESP32 與麥克風 (INMP441)
+
+| INMP441 | ESP32 |
+| :--- | :--- |
+| VCC | 3.3V |
+| GND | GND |
+| SCK | GPIO 10 |
+| WS | GPIO 12 |
+| SD | GPIO 11 |
+| L/R | GND |
+
+
+## ⚙️ 軟體與安裝
+
+本專案建議使用 **PlatformIO** 進行開發，它可以方便地管理不同開發板的環境和函式庫依賴。
+
+### 1. 安裝 PlatformIO
+
+請先在您的 VS Code 中安裝 PlatformIO IDE 擴充功能。
+
+### 2. 下載專案
+
+```bash
+git clone https://github.com/Answer1100/Projects.git
+cd Projects
+

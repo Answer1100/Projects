@@ -63,14 +63,21 @@ bool DualSensorMouse::initSensor(Adafruit_VL53L0X &sensor, uint8_t addr, int shu
     digitalWrite(shut_pin, HIGH);
     delay(10);
     if (!sensor.begin(addr)) {
-        Serial.print("❌ ");
+        Serial.print(F("❌ "));
         Serial.print(sensorName);
-        Serial.println(" 初始化失敗！");
+        Serial.println(F(" 初始化失敗！"));
         return false;
     }
-    Serial.print("✅ ");
+
+    // --- 設定為長距離模式以獲得更好的效能 ---
+    sensor.setSignalRateLimit(0.1);
+    sensor.setVcselPulsePeriod(VL53L0X_VCSEL_PERIOD_PRE_RANGE, 18);
+    sensor.setVcselPulsePeriod(VL53L0X_VCSEL_PERIOD_FINAL_RANGE, 14);
+    sensor.setMeasurementTimingBudget(33000);
+
+    Serial.print(F("✅ "));
     Serial.print(sensorName);
-    Serial.print(" 初始化成功，位址: 0x");
+    Serial.print(F(" 初始化成功，位址: 0x"));
     Serial.println(addr, HEX);
     return true;
 }
@@ -121,12 +128,13 @@ void DualSensorMouse::update() {
 
     // --- 執行滑鼠移動 ---
     if (moveX != 0 || moveY != 0) {
-        Mouse.move(moveX, moveY, 0);
+        // 注意：您可能需要根據感測器的擺放方向，將 moveX 或 moveY 乘以 -1 來反轉方向
+        Mouse.move(-moveX, moveY, 0);
     }
 
     // (可選) 顯示除錯資訊
     // Serial.printf("Raw: X=%d, Y=%d | Filtered: X=%.0f, Y=%.0f | Move: X=%d, Y=%d\n",
     //   measureX.RangeMilliMeter, measureY.RangeMilliMeter, lastDistX, lastDistY, moveX, moveY);
 
-    delay(100); // 降低延遲以提高反應速度
+    delay(20); // 大幅降低延遲以提高反應速度
 }
