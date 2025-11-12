@@ -1,6 +1,5 @@
 # Projects
-微算機原理的final project
-# 關鍵字制雙感測器懸浮滑鼠 (KWD Dual-Sensor Hover Mouse)
+# 具語音關鍵字控制模式的雙感測器懸浮滑鼠 (KWD Dual-Sensor Hover Mouse)
 
 這是一個結合了語音辨識與飛時測距技術的微控制器專案。系統由兩塊主要的開發板協同工作：
 
@@ -65,6 +64,13 @@
 | WS | GPIO 12 |
 | SD | GPIO 11 |
 | L/R | GND |
+
+
+## 📝 注意事項 (Notes)
+
+*   **開發板選擇**：本專案的 Arduino 部分**必須**使用 `Arduino Leonardo`、`Arduino Uno R4` 或其他基於 ATmega32U4 晶片的開發板，因為它們才能模擬原生 USB HID 裝置（滑鼠、鍵盤）。`Arduino Uno R3` 或 `Nano` 將無法正常工作。
+*   **通訊鮑率**：請確保 Arduino 和 ESP32 程式碼中的序列埠鮑率設定一致（例如 `115200`），否則兩者將無法通訊。
+*   **函式庫安裝**：首次使用 PlatformIO 開啟本專案時，它會自動下載所有必要的函式庫。請耐心等待所有依賴項目（Adafruit(4個)、Mouse 等）安裝完成後，再進行編譯（Build）或上傳（Upload）操作，以避免發生錯誤。
 
 
 ## ⚙️ 軟體與安裝
