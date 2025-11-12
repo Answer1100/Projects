@@ -1,0 +1,13 @@
+# VSCode
+.vscode/
+
+# PlatformIO
+.pio/
+
+# Other
+*.bak
+*.bin
+*.exe
+*.elf
+*.o
+*.a
