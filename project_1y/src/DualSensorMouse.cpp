@@ -55,7 +55,7 @@ bool DualSensorMouse::begin() {
     if (measure.RangeStatus != 4) kfY.setInitialValue(measure.RangeMilliMeter);
     lastDistY = kfY.update(measure.RangeMilliMeter);
 
-    Serial.println("✅ 雙感測器滑鼠初始化完成！");
+    Serial.println("✅  雙感測器滑鼠初始化完成！");
     return true;
 }
 
