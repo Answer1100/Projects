@@ -1,0 +1,70 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "C:/esp32/PlatformIO/Projects/project_1y/include",
+                "C:/esp32/PlatformIO/Projects/project_1y/src",
+                "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Mouse/src",
+                "C:/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Adafruit_VL53L0X/src",
+                "C:/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "C:/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "C:/.platformio/packages/framework-arduino-avr/variants/leonardo",
+                "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Adafruit BusIO",
+                "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Adafruit GFX Library",
+                "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Adafruit SSD1306",
+                "C:/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "C:/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "C:/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "C:/esp32/PlatformIO/Projects/project_1y/include",
+                    "C:/esp32/PlatformIO/Projects/project_1y/src",
+                    "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Mouse/src",
+                    "C:/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Adafruit_VL53L0X/src",
+                    "C:/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "C:/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "C:/.platformio/packages/framework-arduino-avr/variants/leonardo",
+                    "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Adafruit BusIO",
+                    "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Adafruit GFX Library",
+                    "C:/esp32/PlatformIO/Projects/project_1y/.pio/libdeps/leonardo/Adafruit SSD1306",
+                    "C:/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "C:/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "C:/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60118",
+                "ARDUINO_AVR_LEONARDO",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "USB_VID=0x2341",
+                "USB_PID=0x8036",
+                "USB_PRODUCT=\"Arduino Leonardo\"",
+                "USB_MANUFACTURER=\"Arduino\"",
+                "__AVR_ATmega32U4__",
+                ""
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "compilerPath": "C:/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "compilerArgs": [
+                "-mmcu=atmega32u4",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
