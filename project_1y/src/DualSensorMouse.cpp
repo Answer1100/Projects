@@ -128,13 +128,8 @@ void DualSensorMouse::update() {
 
     // --- 執行滑鼠移動 ---
     if (moveX != 0 || moveY != 0) {
-        // 注意：您可能需要根據感測器的擺放方向，將 moveX 或 moveY 乘以 -1 來反轉方向
         Mouse.move(-moveX, moveY, 0);
     }
 
-    // (可選) 顯示除錯資訊
-    // Serial.printf("Raw: X=%d, Y=%d | Filtered: X=%.0f, Y=%.0f | Move: X=%d, Y=%d\n",
-    //   measureX.RangeMilliMeter, measureY.RangeMilliMeter, lastDistX, lastDistY, moveX, moveY);
-
-    delay(20); // 大幅降低延遲以提高反應速度
+    delay(100);
 }
