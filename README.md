@@ -16,7 +16,7 @@
 
 **專案狀態：開發中**
 *   [✅] Arduino 端的懸浮滑鼠功能已完成。
-*   [⬜️] Arduino 與 ESP32 之間的通訊協定待整合。
+*   [✅] Arduino 與 ESP32 之間的通訊協定已整合。
 
 ## ✨ 主要功能
 
@@ -70,11 +70,18 @@
 | SD | GPIO 11 |
 | L/R | GND |
 
+### 3. Arduino Leonardo 與 ESP32 (通訊)
+
+| Arduino Leonardo | ESP32 | 備註 |
+| :--- | :--- | :--- |
+| **Pin 9** | **GPIO 16** | 訊號線 (Signal) |
+| GND | GND | 共地 (Common Ground) |
+
 ## 📝 注意事項 (Notes)
 
 *   **開發板選擇**：本專案的 Arduino 部分**必須**使用 `Arduino Leonardo`、`Arduino Uno R4` 或其他基於 ATmega32U4 晶片的開發板，因為它們才能模擬原生 USB HID 裝置（滑鼠、鍵盤）。`Arduino Uno R3` 或 `Nano` 將無法正常工作。
 *   **通訊鮑率**：請確保 Arduino 和 ESP32 程式碼中的序列埠鮑率設定一致（例如 `115200`），否則兩者將無法通訊。
-*   **函式庫安裝**：首次使用 PlatformIO 開啟本專案時，它會自動下載所有必要的函式庫。請耐心等待所有依賴項目（Adafruit(4個)、Mouse 等）安裝完成後，再進行編譯（Build）或上傳（Upload）操作，以避免發生錯誤。
+*   **函式庫安裝**：首次使用 PlatformIO 開啟本專案時，它會自動下載所有必要的函式庫。請耐心等待所有依賴項目（Adafruit、Mouse、Keyboard 等）安裝完成後，再進行編譯（Build）或上傳（Upload）操作，以避免發生錯誤。
 
 ## ⚙️ 軟體與安裝
 
@@ -107,7 +114,7 @@ The goal of this project is to create a hover mouse that can switch between diff
 
 **Project Status: Under Development**
 *   [✅] Arduino-side hover mouse functionality completed.
-*   [⬜️] Communication protocol between Arduino and ESP32 to be integrated.
+*   [✅] Communication protocol between Arduino and ESP32 integrated.
 
 ## ✨ Key Features
 
@@ -161,11 +168,18 @@ Since both VL53L0X sensors have the same default I2C address, we need to use the
 | SD | GPIO 11 |
 | L/R | GND |
 
+### 3. Arduino Leonardo and ESP32 (Communication)
+
+| Arduino Leonardo | ESP32 | Note |
+| :--- | :--- | :--- |
+| **Pin 9** | **GPIO 16** | Signal Line |
+| GND | GND | Common Ground |
+
 ## 📝 Notes
 
 *   **Development Board Selection**: The Arduino part of this project **must** use an `Arduino Leonardo`, `Arduino Uno R4`, or other development boards based on the ATmega32U4 chip, as they can simulate native USB HID devices (mouse, keyboard). `Arduino Uno R3` or `Nano` will not work correctly.
 *   **Baud Rate**: Please ensure that the serial port baud rate settings in both Arduino and ESP32 code are consistent (e.g., `115200`); otherwise, they will not be able to communicate.
-*   **Library Installation**: When opening this project with PlatformIO for the first time, it will automatically download all necessary libraries. Please wait patiently for all dependencies (e.g., Adafruit libraries, Mouse library) to finish installing before compiling (Build) or uploading (Upload) to avoid errors.
+*   **Library Installation**: When opening this project with PlatformIO for the first time, it will automatically download all necessary libraries. Please wait patiently for all dependencies (e.g., Adafruit libraries, Mouse, Keyboard libraries) to finish installing before compiling (Build) or uploading (Upload) to avoid errors.
 
 ## ⚙️ Software and Installation
 
